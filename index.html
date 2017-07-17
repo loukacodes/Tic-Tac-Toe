@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tic Tac Toe</title>
+	<link rel="stylesheet" type="text/css" href="Style/style.css">
+</head>
+<body>
+<h1>Welcome to Tic Tac Toe</h1>
+<h3>Are you an X or O kinda person?</h3>
+<div class="wrapper">
+<div id="x" onclick="chooseCharacter(this)">x</div>
+<div id="o" onclick="chooseCharacter(this)">O</div>
+</div>
+  <div id = "main">
+  	<div id = "board">
+  	  <div class="tile" onclick="claim(this)"></div>
+  	  <div class="tile" onclick="claim(this)"></div>
+  	  <div class="tile" onclick="claim(this)"></div>
+  	  <div class="tile" onclick="claim(this)"></div>
+  	  <div class="tile" onclick="claim(this)"></div>
+  	  <div class="tile" onclick="claim(this)"></div>
+  	  <div class="tile" onclick="claim(this)"></div>
+  	  <div class="tile" onclick="claim(this)"></div>
+  	  <div class="tile" onclick="claim(this)"></div>
+
+  	  <div class="button" id="resetButton" onclick="reset()">Reset</div>
+  	</div>
+  </div>
+  <h3 id="message"></h3>
+<script type="text/javascript" src="Script/main.js"></script>
+</body>
+</html>

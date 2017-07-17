@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One');
+
+* {
+	box-sizing: border-box;
+}
+body {
+	padding: 0;
+	margin: 0;
+	background: #1D3557;
+	text-transform: uppercase;
+	font-size: 1.5vh;
+	font-family: 'Fredoka One', cursive;
+}
+
+h1, #message, h3 {
+	color: #F1FAEE;
+	text-align: center;
+}
+
+#message, h3 {
+	font-size: 3em;
+	text-transform: none;
+}
+
+div#o, div#x {
+ 	font-size: 5em;
+ 	cursor: pointer;
+ 	color: #F1FAEE;
+ 	width: 1.5em;
+	height: 1.2em;
+	text-align: center;
+}
+
+
+.activex, #x:hover {
+	color: #F1FAEE;
+	text-shadow: -1px -1px 10px #E63946, 
+				  1px -1px 10px #E63946, 
+				  -1px 1px 10px #E63946, 
+				  1px 1px 10px #E63946, 
+				  0 0 10px #E63946;
+}
+
+.activeo, #o:hover {
+	color: #F1FAEE;
+	text-shadow: -1px -1px 10px #457B9D, 
+				  1px -1px 10px #457B9D, 
+				  -1px 1px 10px #457B9D, 
+				  1px 1px 10px #457B9D, 
+				  0 0 10px #457B9D;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+#main {
+	padding: 0;
+	margin: 0;
+	padding-top: 10vh;
+	height: auto;
+	width: 100%;
+}
+
+#board {
+	padding: 0;
+	margin: auto;
+	width: 33vh;
+	height: 33vh;
+}
+
+.tile {
+	margin: 0;
+	height: 10vh;
+	width: 10vh;
+	background: #F1FAEE;
+	font-size: 5em;
+	cursor: pointer;
+	float: left;
+	text-align: center;
+	vertical-align: middle;
+	color: #F1FAEE;
+	border: 2px solid #457B9D; 
+	/*text-shadow: 0 0 10px #E63946;*/
+
+}
+
+#resetButton {
+	margin: 0;
+	padding: 0;
+	width: 30vh;
+	height: 5vh;
+	line-height: 5vh;
+	vertical-align:  middle;
+	background: #F1FAEE;
+	text-align: center;
+	cursor: pointer;
+	float: left;
+	font-size: 2em;
+	font-weight: bold;
+	color: #457B9D;
+}
