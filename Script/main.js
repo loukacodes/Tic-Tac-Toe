@@ -1,16 +1,32 @@
+/*================================================
+Classic TIC TAC TOE game built with vanilla JS
+using miniMax algorithm based on this
+https://www.youtube.com/watch?v=aWhb9dr1jNw&t=1604s
+tutorial. Thank you KPkiller1671.
+
+FRONT END DEVELOPMENT PROJECT on Freecodecamp.com
+==================================================*/
+
 var tiles = document.getElementsByClassName("tile");
 var resetButton = document.getElementById("resetButton");
 var message = document.getElementById("message");
-var state = [0,0,0,0,0,0,0,0,0];
+var state = [0,0,0,0,0,0,0,0,0]; //all tiles are empty at initial state
 var game = true;
 var HUMAN = false;
 var COMPUTER = true;
 var humanValue = -1;
 var computerValue = 1;
 var winChances = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
-var char;
+var char; // X or O
 
-var reset = function() {
+window.onload = function() {
+	for(var i = 0; i < tiles.length; i++) {
+		var tile = tiles[i];
+		tile.addEventListener("click", function() {return press(this);}, false);
+	}
+}
+
+function reset() {
 	for (var i = 0; i < 9; i++) {
 		tiles[i].style.background = "#F1FAEE";
 		tiles[i].innerText = "";
@@ -20,7 +36,7 @@ var reset = function() {
 	game = true;
 }
 
-function claim(clicked) {
+function press(clicked) {
 	if (!game) //if game is over (false), do nothing
 		return;
 
@@ -78,14 +94,15 @@ function set(index, player) {
 				setTimeout(reset, 3000);
 			}
 		}
-		
+
 	}
 }
 
 function checkWin(board, player) {
+	//return humanValue is current player is human and vice versa
 	var value = player === HUMAN ? humanValue : computerValue;
 
-	for (var i = 0; i < 8; i++) {
+	for (var i = 0; i < 8; i++) { //loop through all 8 win chances
 		var win = true;
 
 		for (var j = 0; j < 3; j++) {
@@ -95,7 +112,7 @@ function checkWin(board, player) {
 			}
 		}
 
-		if (win) 
+		if (win)
 			return true;
 	}
 	return false;
@@ -103,7 +120,7 @@ function checkWin(board, player) {
 
 function checkFull(board) {
 	for (var i = 0; i < 9; i++) {
-		if (board[i] === 0) 
+		if (board[i] === 0)
 			return false;
 	}
 	return true; //if none of the tiles empty, board is full
@@ -115,13 +132,11 @@ function callAI() {
 }
 
 function computerBestMove(board, depth, player) {
-	if (checkWin(board, !player)) 
+	if (checkWin(board, !player))
 		return -10 + depth;
-	
 
 	if (checkFull(board))
 		return 0;
-	
 
 	var value = player == HUMAN ? humanValue : computerValue;
 	var max = -Infinity;
@@ -147,4 +162,3 @@ function computerBestMove(board, depth, player) {
 
 	return max
 }
-
